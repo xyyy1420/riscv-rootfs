@@ -424,7 +424,16 @@ spec_info = {
       "${SPEC}/cpu2006_run_dir/zeusmp/zmp_inp"
     ],
     []
-  )
+  ),
+  # WARNING: this is SPEC test
+  "gamess_exam29": (
+    [
+      "${SPEC}/spec06_exe/gamess_base.riscv64-linux-gnu-gcc-9.3.0",
+      "${SPEC}/cpu2006_run_dir/gamess/exam29.config",
+      "${SPEC}/cpu2006_run_dir/gamess/exam29.inp"
+    ],
+    [ "<", "exam29.config" ]
+  ),
 }
 
 default_files = [
