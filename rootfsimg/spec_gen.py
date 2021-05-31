@@ -495,50 +495,54 @@ def traverse_path(path, stack=""):
       all_files.extend(sub_files)
   return (all_dirs, all_files)
 
-def generate_initramfs(spec):
+def generate_initramfs(specs):
   lines = default_files.copy()
-  spec_files = spec_info[spec][0]
-  for i, filename in enumerate(spec_files):
-    if len(filename.split()) == 1:
-      # print(f"default {filename} to file 755 0 0")
-      basename = filename.split("/")[-1]
-      filename = f"file /spec/{basename} {filename} 755 0 0"
-      lines.append(filename)
-    elif len(filename.split()) == 3:
-      node_type, name, path = filename.split()
-      if node_type != "dir":
+  for spec in specs:
+    spec_files = spec_info[spec][0]
+    for i, filename in enumerate(spec_files):
+      if len(filename.split()) == 1:
+        # print(f"default {filename} to file 755 0 0")
+        basename = filename.split("/")[-1]
+        filename = f"file /spec/{basename} {filename} 755 0 0"
+        lines.append(filename)
+      elif len(filename.split()) == 3:
+        node_type, name, path = filename.split()
+        if node_type != "dir":
+          print(f"unknown filename: {filename}")
+          continue
+        all_dirs, all_files = traverse_path(path)
+        lines.append(f"dir /spec/{name} 755 0 0")
+        for sub_dir in all_dirs:
+          lines.append(f"dir /spec/{name}/{sub_dir} 755 0 0")
+        for file in all_files:
+          lines.append(f"file /spec/{name}/{file} {path}/{file} 755 0 0")
+      else:
         print(f"unknown filename: {filename}")
-        continue
-      all_dirs, all_files = traverse_path(path)
-      lines.append(f"dir /spec/{name} 755 0 0")
-      for sub_dir in all_dirs:
-        lines.append(f"dir /spec/{name}/{sub_dir} 755 0 0")
-      for file in all_files:
-        lines.append(f"file /spec/{name}/{file} {path}/{file} 755 0 0")
-    else:
-      print(f"unknown filename: {filename}")
   with open("initramfs-spec.txt", "w") as f:
     f.writelines(map(lambda x: x + "\n", lines))
 
 
-def generate_run_sh(spec, withTrap=False):
+def generate_run_sh(specs, withTrap=False):
   lines =[ ]
   lines.append("#!/bin/sh")
-  lines.append("echo '===== Start running SPEC2006 ref ====='")
-  lines.append(f"echo '======== {spec} ========'")
-  lines.append("date -R")
-  lines.append("set -x")
-  spec_bin = spec_info[spec][0][0].split("/")[-1]
-  spec_cmd = " ".join(spec_info[spec][1])
-  lines.append(f"cd /spec && ./{spec_bin} {spec_cmd}")
-  lines.append("set +x")
-  lines.append("date -R")
+  lines.append("echo '===== Start running SPEC2006 ====='")
+  for spec in specs:
+    lines.append(f"echo '======== BEGIN {spec} ========'")
+    lines.append("set -x")
+    lines.append("date -R")
+    spec_bin = spec_info[spec][0][0].split("/")[-1]
+    spec_cmd = " ".join(spec_info[spec][1])
+    lines.append(f"cd /spec && ./{spec_bin} {spec_cmd}")
+    lines.append("date -R")
+    lines.append("set +x")
+    lines.append(f"echo '======== END   {spec} ========'")
+  lines.append("echo '===== Finish running SPEC2006 ====='")
   if withTrap:
     lines.append("/spec_common/trap")
-  lines.append("echo '===== Finish running SPEC2006 ref ====='")
   with open("run.sh", "w") as f:
     f.writelines(map(lambda x: x + "\n", lines))
 
 if __name__ == "__main__":
-  generate_initramfs(sys.argv[1])
-  generate_run_sh(sys.argv[1])
+  specs = sys.argv[1:]
+  generate_initramfs(specs)
+  generate_run_sh(specs, True)
