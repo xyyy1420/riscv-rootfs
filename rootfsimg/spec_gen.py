@@ -193,8 +193,8 @@ spec_info = {
     [
       "${SPEC}/spec06_exe/gobmk_base.riscv64-linux-gnu-gcc-9.3.0",
       "${SPEC}/cpu2006_run_dir/gobmk/13x13.tst",
-      "dir games /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
-      "dir golois /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
+      "dir games /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
+      "dir golois /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
     ],
     [ "--quiet", "--mode", "gtp", "<", "13x13.tst" ]
   ),
@@ -202,8 +202,8 @@ spec_info = {
     [
       "${SPEC}/spec06_exe/gobmk_base.riscv64-linux-gnu-gcc-9.3.0",
       "${SPEC}/cpu2006_run_dir/gobmk/nngs.tst",
-      "dir games /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
-      "dir golois /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
+      "dir games /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
+      "dir golois /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
     ],
     [ "--quiet", "--mode", "gtp", "<", "nngs.tst" ]
   ),
@@ -211,8 +211,8 @@ spec_info = {
     [
       "${SPEC}/spec06_exe/gobmk_base.riscv64-linux-gnu-gcc-9.3.0",
       "${SPEC}/cpu2006_run_dir/gobmk/score2.tst",
-      "dir games /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
-      "dir golois /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
+      "dir games /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
+      "dir golois /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
     ],
     [ "--quiet", "--mode", "gtp", "<", "score2.tst" ]
   ),
@@ -220,8 +220,8 @@ spec_info = {
     [
       "${SPEC}/spec06_exe/gobmk_base.riscv64-linux-gnu-gcc-9.3.0",
       "${SPEC}/cpu2006_run_dir/gobmk/trevorc.tst",
-      "dir games /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
-      "dir golois /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
+      "dir games /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
+      "dir golois /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
     ],
     [ "--quiet", "--mode", "gtp", "<", "trevorc.tst" ]
   ),
@@ -229,8 +229,8 @@ spec_info = {
     [
       "${SPEC}/spec06_exe/gobmk_base.riscv64-linux-gnu-gcc-9.3.0",
       "${SPEC}/cpu2006_run_dir/gobmk/trevord.tst",
-      "dir games /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
-      "dir golois /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
+      "dir games /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
+      "dir golois /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
     ],
     [ "--quiet", "--mode", "gtp", "<", "trevord.tst" ]
   ),
@@ -335,8 +335,8 @@ spec_info = {
       "${SPEC}/cpu2006_run_dir/perlbench/cpu2006_mhonarc.rc",
       "${SPEC}/cpu2006_run_dir/perlbench/checkspam.pl",
       "${SPEC}/cpu2006_run_dir/perlbench/checkspam.in",
-      "dir lib /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/lib",
-      "dir rules /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/rules"
+      "dir lib /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/lib",
+      "dir rules /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/rules"
     ],
     [ "-I./lib", "checkspam.pl", "2500", "5", "25", "11", "150", "1", "1", "1", "1" ]
   ),
@@ -346,8 +346,8 @@ spec_info = {
       "${SPEC}/cpu2006_run_dir/perlbench/cpu2006_mhonarc.rc",
       "${SPEC}/cpu2006_run_dir/perlbench/diffmail.pl",
       "${SPEC}/cpu2006_run_dir/perlbench/diffmail.in",
-      "dir lib /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/lib",
-      "dir rules /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/rules"
+      "dir lib /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/lib",
+      "dir rules /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/rules"
     ],
     [ "-I./lib", "diffmail.pl", "4", "800", "10", "17", "19", "300" ]
   ),
@@ -357,15 +357,15 @@ spec_info = {
       "${SPEC}/cpu2006_run_dir/perlbench/cpu2006_mhonarc.rc",
       "${SPEC}/cpu2006_run_dir/perlbench/splitmail.pl",
       "${SPEC}/cpu2006_run_dir/perlbench/splitmail.in",
-      "dir lib /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/lib",
-      "dir rules /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/rules"
+      "dir lib /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/lib",
+      "dir rules /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/rules"
     ],
     [ "-I./lib", "splitmail.pl", "1600", "12", "26", "16", "4500" ]
   ),
   "povray": (
     [
       "${SPEC}/spec06_exe/povray_base.riscv64-linux-gnu-gcc-9.3.0",
-      "dir . /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/povray"
+      "dir . /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/povray"
     ],
     [ "SPEC-benchmark-ref.ini" ]
   ),
@@ -393,7 +393,7 @@ spec_info = {
   "sphinx3": (
     [
       "${SPEC}/spec06_exe/sphinx_livepretend_base.riscv64-linux-gnu-gcc-9.3.0",
-      "dir . /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/sphinx3"
+      "dir . /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/sphinx3"
     ],
     [ "ctlfile", ".", "args.an4" ]
   ),
@@ -407,14 +407,14 @@ spec_info = {
   "wrf": (
     [
       "${SPEC}/spec06_exe/wrf_base.riscv64-linux-gnu-gcc-9.3.0",
-      "dir . /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/wrf"
+      "dir . /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/wrf"
     ],
     []
   ),
   "xalancbmk": (
     [
       "${SPEC}/spec06_exe/Xalan_base.riscv64-linux-gnu-gcc-9.3.0",
-      "dir . /bigdata/xs-workloads/spec/spec-all/cpu2006_run_dir/xalancbmk"
+      "dir . /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/xalancbmk"
     ],
     [ "-v", "t5.xml", "xalanc.xsl" ]
   ),
