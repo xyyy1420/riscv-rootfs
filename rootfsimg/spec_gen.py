@@ -433,9 +433,13 @@ spec_info = {
       "${SPEC}/cpu2006_run_dir/gamess/exam29.config",
       "${SPEC}/cpu2006_run_dir/gamess/exam29.inp"
     ],
-    [ "<", "exam29.config" ]
+    [ "<", "exam29.config" ],
+    ["test"]
   ),
 }
+
+def get_spec_ref_all():
+  return sorted(filter(lambda k: len(spec_info[k]) == 2, spec_info.keys()))
 
 default_files = [
   "dir /bin 755 0 0",
@@ -546,13 +550,50 @@ def generate_run_sh(specs, withTrap=False):
   with open("run.sh", "w") as f:
     f.writelines(map(lambda x: x + "\n", lines))
 
+def generate_build_scripts(specs, withTrap=False, spec_gen=__file__):
+  lines = []
+  lines.append("#!/bin/sh")
+  lines.append("set -x")
+  spike_dir, linux_dir = "../../riscv-pk", "../../riscv-linux"
+  lines.append("mkdir -p spec_images")
+  for spec in specs:
+    target_dir = f"spec_images/{spec}"
+    lines.append(f"mkdir -p {target_dir}")
+    extra_args = ""
+    if withTrap:
+      extra_args += " --checkpoints"
+    lines.append(f"python3 {spec_gen} {spec}{extra_args}")
+    lines.append(f"make -s -C {spike_dir} clean && make -s -C {spike_dir} -j100")
+    bbl_elf = f"{spike_dir}/build/bbl"
+    linux_elf = f"{linux_dir}/vmlinux"
+    spec_elf = spec_info[spec][0][0]
+    bbl_bin = f"{spike_dir}/build/bbl.bin"
+    for f in [bbl_elf, linux_elf, spec_elf]:
+      filename = os.path.basename(f)
+      lines.append(f"riscv64-unknown-linux-gnu-objdump -d {f} > {target_dir}/{filename}.txt")
+    for f in [bbl_elf, linux_elf, spec_elf, bbl_bin]:
+      lines.append(f"cp {f} {target_dir}")
+  with open("build.sh", "w") as f:
+    f.writelines(map(lambda x: x + "\n", lines))
+
 if __name__ == "__main__":
   parser = argparse.ArgumentParser(description='CPU CPU2006 ramfs scripts')
   parser.add_argument('benchspec', nargs='*', help='selected benchmarks')
   parser.add_argument('--checkpoints', action='store_true',
                       help='checkpoints mode (with before_workload and trap)')
+  parser.add_argument('--scripts', action='store_true',
+                      help='generate build scripts for spec ramfs')
 
   args = parser.parse_args()
 
-  generate_initramfs(args.benchspec)
-  generate_run_sh(args.benchspec, args.checkpoints)
+  if args.scripts:
+    # parse benchspec
+    if "ref-all" in args.benchspec:
+      args.benchspec += get_spec_ref_all()
+    args.benchspec = [b for b in args.benchspec if b not in ["ref-all"]]
+    args.benchspec = sorted(set(args.benchspec))
+    # create build scripts
+    generate_build_scripts(args.benchspec, args.checkpoints)
+  else:
+    generate_initramfs(args.benchspec)
+    generate_run_sh(args.benchspec, args.checkpoints)
