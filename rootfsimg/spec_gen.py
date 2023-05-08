@@ -1,3 +1,4 @@
+import argparse
 import os
 import sys
 
@@ -544,6 +545,10 @@ def generate_run_sh(specs, withTrap=False):
     f.writelines(map(lambda x: x + "\n", lines))
 
 if __name__ == "__main__":
-  specs = sys.argv[1:]
-  generate_initramfs(specs)
-  generate_run_sh(specs, True)
+  parser = argparse.ArgumentParser(description='CPU CPU2006 ramfs scripts')
+  parser.add_argument('benchspec', nargs='*', help='selected benchmarks')
+
+  args = parser.parse_args()
+
+  generate_initramfs(args.benchspec)
+  generate_run_sh(args.benchspec, True)
