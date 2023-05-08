@@ -534,21 +534,25 @@ def generate_run_sh(specs, withTrap=False):
     lines.append("set -x")
     lines.append(f"md5sum /spec/{spec_bin}")
     lines.append("date -R")
+    if withTrap:
+      lines.append("/spec_common/before_workload")
     lines.append(f"cd /spec && ./{spec_bin} {spec_cmd}")
+    if withTrap:
+      lines.append("/spec_common/trap")
     lines.append("date -R")
     lines.append("set +x")
     lines.append(f"echo '======== END   {spec} ========'")
   lines.append("echo '===== Finish running SPEC2006 ====='")
-  if withTrap:
-    lines.append("/spec_common/trap")
   with open("run.sh", "w") as f:
     f.writelines(map(lambda x: x + "\n", lines))
 
 if __name__ == "__main__":
   parser = argparse.ArgumentParser(description='CPU CPU2006 ramfs scripts')
   parser.add_argument('benchspec', nargs='*', help='selected benchmarks')
+  parser.add_argument('--checkpoints', action='store_true',
+                      help='checkpoints mode (with before_workload and trap)')
 
   args = parser.parse_args()
 
   generate_initramfs(args.benchspec)
-  generate_run_sh(args.benchspec, True)
+  generate_run_sh(args.benchspec, args.checkpoints)
