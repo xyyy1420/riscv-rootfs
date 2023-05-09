@@ -14,7 +14,8 @@ def get_spec_info():
       "${SPEC}/cpu2006_run_dir/astar/BigLakes2048.bin",
       "${SPEC}/cpu2006_run_dir/astar/BigLakes2048.cfg"
     ],
-    [ "BigLakes2048.cfg" ]
+    [ "BigLakes2048.cfg" ],
+    [ "int", "ref" ]
   ),
   "astar_rivers": (
     [
@@ -22,63 +23,72 @@ def get_spec_info():
       "${SPEC}/cpu2006_run_dir/astar/rivers.bin",
       "${SPEC}/cpu2006_run_dir/astar/rivers.cfg"
     ],
-    [ "rivers.cfg" ]
+    [ "rivers.cfg" ],
+    [ "int", "ref" ]
   ),
   "bwaves": (
     [
       "${SPEC}/spec06_exe/bwaves" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/bwaves/bwaves.in"
     ],
-    []
+    [],
+    [ "fp", "ref" ]
   ),
   "bzip2_chicken": (
     [
       "${SPEC}/spec06_exe/bzip2" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/bzip2/chicken.jpg"
     ],
-    [ "chicken.jpg", "30" ]
+    [ "chicken.jpg", "30" ],
+    [ "int", "ref" ]
   ),
   "bzip2_combined": (
     [
       "${SPEC}/spec06_exe/bzip2" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/bzip2/input.combined"
     ],
-    [ "input.combined", "200" ]
+    [ "input.combined", "200" ],
+    [ "int", "ref" ]
   ),
   "bzip2_html": (
     [
       "${SPEC}/spec06_exe/bzip2" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/bzip2/text.html"
     ],
-    [ "text.html", "280" ]
+    [ "text.html", "280" ],
+    [ "int", "ref" ]
   ),
   "bzip2_liberty": (
     [
       "${SPEC}/spec06_exe/bzip2" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/bzip2/liberty.jpg"
     ],
-    [ "liberty.jpg", "30" ]
+    [ "liberty.jpg", "30" ],
+    [ "int", "ref" ]
   ),
   "bzip2_program": (
     [
       "${SPEC}/spec06_exe/bzip2" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/bzip2/input.program"
     ],
-    [ "input.program", "280" ]
+    [ "input.program", "280" ],
+    [ "int", "ref" ]
   ),
   "bzip2_source": (
     [
       "${SPEC}/spec06_exe/bzip2" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/bzip2/input.source"
     ],
-    [ "input.source", "280" ]
+    [ "input.source", "280" ],
+    [ "int", "ref" ]
   ),
   "cactusADM": (
     [
       "${SPEC}/spec06_exe/cactusADM" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/cactusADM/benchADM.par"
     ],
-    [ "benchADM.par" ]
+    [ "benchADM.par" ],
+    [ "fp", "ref" ]
   ),
   "calculix": (
     [
@@ -88,14 +98,16 @@ def get_spec_info():
       "${SPEC}/cpu2006_run_dir/calculix/hyperviscoplastic.inp",
       "${SPEC}/cpu2006_run_dir/calculix/hyperviscoplastic.sta"
     ],
-    [ "-i", "hyperviscoplastic" ]
+    [ "-i", "hyperviscoplastic" ],
+    [ "fp", "ref" ]
   ),
   "dealII": (
     [
       "${SPEC}/spec06_exe/dealII" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/dealII/DummyData"
     ],
-    [ "23" ]
+    [ "23" ],
+    [ "fp", "ref" ]
   ),
   "gamess_cytosine": (
     [
@@ -103,7 +115,8 @@ def get_spec_info():
       "${SPEC}/cpu2006_run_dir/gamess/cytosine.2.config",
       "${SPEC}/cpu2006_run_dir/gamess/cytosine.2.inp"
     ],
-    [ "<", "cytosine.2.config" ]
+    [ "<", "cytosine.2.config" ],
+    [ "fp", "ref" ]
   ),
   "gamess_gradient": (
     [
@@ -111,7 +124,8 @@ def get_spec_info():
       "${SPEC}/cpu2006_run_dir/gamess/h2ocu2+.gradient.config",
       "${SPEC}/cpu2006_run_dir/gamess/h2ocu2+.gradient.inp"
     ],
-    [ "<", "h2ocu2+.gradient.config" ]
+    [ "<", "h2ocu2+.gradient.config" ],
+    [ "fp", "ref" ]
   ),
   "gamess_triazolium": (
     [
@@ -119,70 +133,80 @@ def get_spec_info():
       "${SPEC}/cpu2006_run_dir/gamess/triazolium.config",
       "${SPEC}/cpu2006_run_dir/gamess/triazolium.inp"
     ],
-    [ "<", "triazolium.config" ]
+    [ "<", "triazolium.config" ],
+    [ "fp", "ref" ]
   ),
   "gcc_166": (
     [
       "${SPEC}/spec06_exe/gcc" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/gcc/166.i"
     ],
-    [ "166.i", "-o", "166.s" ]
+    [ "166.i", "-o", "166.s" ],
+    [ "int", "ref" ]
   ),
   "gcc_200": (
     [
       "${SPEC}/spec06_exe/gcc" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/gcc/200.i"
     ],
-    [ "200.i", "-o", "200.s" ]
+    [ "200.i", "-o", "200.s" ],
+    [ "int", "ref" ]
   ),
   "gcc_cpdecl": (
     [
       "${SPEC}/spec06_exe/gcc" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/gcc/cp-decl.i"
     ],
-    [ "cp-decl.i", "-o", "cp-decl.s" ]
+    [ "cp-decl.i", "-o", "cp-decl.s" ],
+    [ "int", "ref" ]
   ),
   "gcc_expr2": (
     [
       "${SPEC}/spec06_exe/gcc" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/gcc/expr2.i"
     ],
-    [ "expr2.i", "-o", "expr2.s" ]
+    [ "expr2.i", "-o", "expr2.s" ],
+    [ "int", "ref" ]
   ),
   "gcc_expr": (
     [
       "${SPEC}/spec06_exe/gcc" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/gcc/expr.i"
     ],
-    [ "expr.i", "-o", "expr.s" ]
+    [ "expr.i", "-o", "expr.s" ],
+    [ "int", "ref" ]
   ),
   "gcc_g23": (
     [
       "${SPEC}/spec06_exe/gcc" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/gcc/g23.i"
     ],
-    [ "g23.i", "-o", "g23.s" ]
+    [ "g23.i", "-o", "g23.s" ],
+    [ "int", "ref" ]
   ),
   "gcc_s04": (
     [
       "${SPEC}/spec06_exe/gcc" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/gcc/s04.i"
     ],
-    [ "s04.i", "-o", "s04.s" ]
+    [ "s04.i", "-o", "s04.s" ],
+    [ "int", "ref" ]
   ),
   "gcc_scilab": (
     [
       "${SPEC}/spec06_exe/gcc" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/gcc/scilab.i"
     ],
-    [ "scilab.i", "-o", "scilab.s" ]
+    [ "scilab.i", "-o", "scilab.s" ],
+    [ "int", "ref" ]
   ),
   "gcc_typeck": (
     [
       "${SPEC}/spec06_exe/gcc" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/gcc/c-typeck.i"
     ],
-    [ "c-typeck.i", "-o", "c-typeck.s" ]
+    [ "c-typeck.i", "-o", "c-typeck.s" ],
+    [ "int", "ref" ]
   ),
   "GemsFDTD": (
     [
@@ -191,7 +215,8 @@ def get_spec_info():
       "${SPEC}/cpu2006_run_dir/GemsFDTD/sphere.pec",
       "${SPEC}/cpu2006_run_dir/GemsFDTD/yee.dat"
     ],
-    []
+    [],
+    [ "fp", "ref" ]
   ),
   "gobmk_13x13": (
     [
@@ -200,7 +225,8 @@ def get_spec_info():
       "dir games /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
       "dir golois /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
     ],
-    [ "--quiet", "--mode", "gtp", "<", "13x13.tst" ]
+    [ "--quiet", "--mode", "gtp", "<", "13x13.tst" ],
+    [ "int", "ref" ]
   ),
   "gobmk_nngs": (
     [
@@ -209,7 +235,8 @@ def get_spec_info():
       "dir games /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
       "dir golois /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
     ],
-    [ "--quiet", "--mode", "gtp", "<", "nngs.tst" ]
+    [ "--quiet", "--mode", "gtp", "<", "nngs.tst" ],
+    [ "int", "ref" ]
   ),
   "gobmk_score2": (
     [
@@ -218,7 +245,8 @@ def get_spec_info():
       "dir games /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
       "dir golois /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
     ],
-    [ "--quiet", "--mode", "gtp", "<", "score2.tst" ]
+    [ "--quiet", "--mode", "gtp", "<", "score2.tst" ],
+    [ "int", "ref" ]
   ),
   "gobmk_trevorc": (
     [
@@ -227,7 +255,8 @@ def get_spec_info():
       "dir games /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
       "dir golois /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
     ],
-    [ "--quiet", "--mode", "gtp", "<", "trevorc.tst" ]
+    [ "--quiet", "--mode", "gtp", "<", "trevorc.tst" ],
+    [ "int", "ref" ]
   ),
   "gobmk_trevord": (
     [
@@ -236,14 +265,16 @@ def get_spec_info():
       "dir games /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/games",
       "dir golois /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/gobmk/golois"
     ],
-    [ "--quiet", "--mode", "gtp", "<", "trevord.tst" ]
+    [ "--quiet", "--mode", "gtp", "<", "trevord.tst" ],
+    [ "int", "ref" ]
   ),
   "gromacs": (
     [
       "${SPEC}/spec06_exe/gromacs" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/gromacs/gromacs.tpr"
     ],
-    [ "-silent", "-deffnm", "gromacs.tpr", "-nice", "0" ]
+    [ "-silent", "-deffnm", "gromacs.tpr", "-nice", "0" ],
+    [ "fp", "ref" ]
   ),
   "h264ref_foreman.baseline": (
     [
@@ -251,7 +282,8 @@ def get_spec_info():
       "${SPEC}/cpu2006_run_dir/h264ref/foreman_ref_encoder_baseline.cfg",
       "${SPEC}/cpu2006_run_dir/h264ref/foreman_qcif.yuv"
     ],
-    [ "-d", "foreman_ref_encoder_baseline.cfg" ]
+    [ "-d", "foreman_ref_encoder_baseline.cfg" ],
+    [ "int", "ref" ]
   ),
   "h264ref_foreman.main": (
     [
@@ -259,7 +291,8 @@ def get_spec_info():
       "${SPEC}/cpu2006_run_dir/h264ref/foreman_ref_encoder_main.cfg",
       "${SPEC}/cpu2006_run_dir/h264ref/foreman_qcif.yuv"
     ],
-    [ "-d", "foreman_ref_encoder_main.cfg" ]
+    [ "-d", "foreman_ref_encoder_main.cfg" ],
+    [ "int", "ref" ]
   ),
   "h264ref_sss": (
     [
@@ -267,7 +300,8 @@ def get_spec_info():
       "${SPEC}/cpu2006_run_dir/h264ref/sss_encoder_main.cfg",
       "${SPEC}/cpu2006_run_dir/h264ref/sss.yuv"
     ],
-    [ "-d", "sss_encoder_main.cfg" ]
+    [ "-d", "sss_encoder_main.cfg" ],
+    [ "int", "ref" ]
   ),
   "hmmer_nph3": (
     [
@@ -275,14 +309,16 @@ def get_spec_info():
       "${SPEC}/cpu2006_run_dir/hmmer/nph3.hmm",
       "${SPEC}/cpu2006_run_dir/hmmer/swiss41"
     ],
-    [ "nph3.hmm", "swiss41" ]
+    [ "nph3.hmm", "swiss41" ],
+    [ "int", "ref" ]
   ),
   "hmmer_retro": (
     [
       "${SPEC}/spec06_exe/hmmer" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/hmmer/retro.hmm"
     ],
-    [ "--fixed", "0", "--mean", "500", "--num", "500000", "--sd", "350", "--seed", "0", "retro.hmm" ]
+    [ "--fixed", "0", "--mean", "500", "--num", "500000", "--sd", "350", "--seed", "0", "retro.hmm" ],
+    [ "int", "ref" ]
   ),
   "lbm": (
     [
@@ -290,48 +326,55 @@ def get_spec_info():
       "${SPEC}/cpu2006_run_dir/lbm/100_100_130_ldc.of",
       "${SPEC}/cpu2006_run_dir/lbm/lbm.in"
     ],
-    [ "3000", "reference.dat", "0", "0", "100_100_130_ldc.of" ]
+    [ "3000", "reference.dat", "0", "0", "100_100_130_ldc.of" ],
+    [ "fp", "ref" ]
   ),
   "leslie3d": (
     [
       "${SPEC}/spec06_exe/leslie3d" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/leslie3d/leslie3d.in"
     ],
-    [ "<", "leslie3d.in" ]
+    [ "<", "leslie3d.in" ],
+    [ "fp", "ref" ]
   ),
   "libquantum": (
     [
       "${SPEC}/spec06_exe/libquantum_base.riscv64-linux-gnu-gcc-9.3.0"
     ],
-    [ "1397", "8" ]
+    [ "1397", "8" ],
+    [ "int", "ref" ]
   ),
   "mcf": (
     [
       "${SPEC}/spec06_exe/mcf" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/mcf/inp.in"
     ],
-    [ "inp.in" ]
+    [ "inp.in" ],
+    [ "int", "ref" ]
   ),
   "milc": (
     [
       "${SPEC}/spec06_exe/milc" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/milc/su3imp.in"
     ],
-    [ "<", "su3imp.in" ]
+    [ "<", "su3imp.in" ],
+    [ "fp", "ref" ]
   ),
   "namd": (
     [
       "${SPEC}/spec06_exe/namd" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/namd/namd.input"
     ],
-    [ "--input", "namd.input", "--iterations", "38", "--output", "namd.out" ]
+    [ "--input", "namd.input", "--iterations", "38", "--output", "namd.out" ],
+    [ "fp", "ref" ]
   ),
   "omnetpp": (
     [
       "${SPEC}/spec06_exe/omnetpp" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/omnetpp/omnetpp.ini"
     ],
-    [ "omnetpp.ini" ]
+    [ "omnetpp.ini" ],
+    [ "int", "ref" ]
   ),
   "perlbench_checkspam": (
     [
@@ -342,7 +385,8 @@ def get_spec_info():
       "dir lib /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/lib",
       "dir rules /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/rules"
     ],
-    [ "-I./lib", "checkspam.pl", "2500", "5", "25", "11", "150", "1", "1", "1", "1" ]
+    [ "-I./lib", "checkspam.pl", "2500", "5", "25", "11", "150", "1", "1", "1", "1" ],
+    [ "int", "ref" ]
   ),
   "perlbench_diffmail": (
     [
@@ -353,7 +397,8 @@ def get_spec_info():
       "dir lib /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/lib",
       "dir rules /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/rules"
     ],
-    [ "-I./lib", "diffmail.pl", "4", "800", "10", "17", "19", "300" ]
+    [ "-I./lib", "diffmail.pl", "4", "800", "10", "17", "19", "300" ],
+    [ "int", "ref" ]
   ),
   "perlbench_splitmail": (
     [
@@ -364,70 +409,80 @@ def get_spec_info():
       "dir lib /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/lib",
       "dir rules /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/perlbench/rules"
     ],
-    [ "-I./lib", "splitmail.pl", "1600", "12", "26", "16", "4500" ]
+    [ "-I./lib", "splitmail.pl", "1600", "12", "26", "16", "4500" ],
+    [ "int", "ref" ]
   ),
   "povray": (
     [
       "${SPEC}/spec06_exe/povray" + elf_suffix,
       "dir . /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/povray"
     ],
-    [ "SPEC-benchmark-ref.ini" ]
+    [ "SPEC-benchmark-ref.ini" ],
+    [ "fp", "ref" ]
   ),
   "sjeng": (
     [
       "${SPEC}/spec06_exe/sjeng" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/sjeng/ref.txt"
     ],
-    [ "ref.txt" ]
+    [ "ref.txt" ],
+    [ "int", "ref" ]
   ),
   "soplex_pds-50": (
     [
       "${SPEC}/spec06_exe/soplex" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/soplex/pds-50.mps"
     ],
-    [ "-s1", "-e", "-m45000", "pds-50.mps" ]
+    [ "-s1", "-e", "-m45000", "pds-50.mps" ],
+    [ "fp", "ref" ]
   ),
   "soplex_ref": (
     [
       "${SPEC}/spec06_exe/soplex" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/soplex/ref.mps"
     ],
-    [ "-m3500", "ref.mps" ]
+    [ "-m3500", "ref.mps" ],
+    [ "fp", "ref" ]
   ),
   "sphinx3": (
     [
       "${SPEC}/spec06_exe/sphinx_livepretend" + elf_suffix,
       "dir . /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/sphinx3"
     ],
-    [ "ctlfile", ".", "args.an4" ]
+    [ "ctlfile", ".", "args.an4" ],
+    [ "fp", "ref" ]
   ),
   "tonto": (
     [
       "${SPEC}/spec06_exe/tonto" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/tonto/stdin"
     ],
-    []
+    [],
+    [ "fp", "ref" ]
   ),
   "wrf": (
     [
       "${SPEC}/spec06_exe/wrf" + elf_suffix,
       "dir . /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/wrf"
     ],
-    []
+    [],
+    [ "fp", "ref" ]
   ),
   "xalancbmk": (
     [
-      "${SPEC}/spec06_exe/Xalan" + elf_suffix,
+      "${SPEC}/spec06_exe/xalancbmk" + elf_suffix,
       "dir . /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/xalancbmk"
     ],
-    [ "-v", "t5.xml", "xalanc.xsl" ]
+    [ "-v", "t5.xml", "xalanc.xsl" ],
+    [ "int", "ref" ]
   ),
   "zeusmp": (
     [
       "${SPEC}/spec06_exe/zeusmp" + elf_suffix,
       "${SPEC}/cpu2006_run_dir/zeusmp/zmp_inp"
     ],
-    []
+    [],
+    [ "fp", "ref" ]
   ),
   # WARNING: this is SPEC test
   "gamess_exam29": (
@@ -437,12 +492,9 @@ def get_spec_info():
       "${SPEC}/cpu2006_run_dir/gamess/exam29.inp"
     ],
     [ "<", "exam29.config" ],
-    ["test"]
+    ["fp", "test"]
   ),
 }
-
-def get_spec_ref_all():
-  return sorted(filter(lambda k: len(get_spec_info()[k]) == 2, get_spec_info().keys()))
 
 default_files = [
   "dir /bin 755 0 0",
@@ -557,6 +609,7 @@ def generate_build_scripts(specs, withTrap=False, spec_gen=__file__):
   lines = []
   lines.append("#!/bin/sh")
   lines.append("set -x")
+  lines.append("set -e")
   spike_dir, linux_dir = "../../riscv-pk", "../../riscv-linux"
   lines.append("mkdir -p spec_images")
   for spec in specs:
@@ -594,14 +647,19 @@ if __name__ == "__main__":
   if args.elf_suffix is not None:
     elf_suffix = args.elf_suffix
 
+  # parse benchspec
+  benchspec = []
+  spec_info = get_spec_info()
+  for s in args.benchspec:
+    if s in spec_info:
+      benchspec.append(s)
+    else:
+      benchspec += [k for k in spec_info.keys() if set(s.split(",")) <= set(spec_info[k][2])]
+  benchspec = sorted(set(benchspec))
+  print(f"All {len(benchspec)} selected benchspec: {' '.join(benchspec)}")
+
   if args.scripts:
-    # parse benchspec
-    if "ref-all" in args.benchspec:
-      args.benchspec += get_spec_ref_all()
-    args.benchspec = [b for b in args.benchspec if b not in ["ref-all"]]
-    args.benchspec = sorted(set(args.benchspec))
-    # create build scripts
-    generate_build_scripts(args.benchspec, args.checkpoints)
+    generate_build_scripts(benchspec, args.checkpoints)
   else:
-    generate_initramfs(args.benchspec)
-    generate_run_sh(args.benchspec, args.checkpoints)
+    generate_initramfs(benchspec)
+    generate_run_sh(benchspec, args.checkpoints)
