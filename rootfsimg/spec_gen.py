@@ -339,7 +339,7 @@ def get_spec_info():
   ),
   "libquantum": (
     [
-      "${SPEC}/spec06_exe/libquantum_base.riscv64-linux-gnu-gcc-9.3.0"
+      "${SPEC}/spec06_exe/libquantum" + elf_suffix
     ],
     [ "1397", "8" ],
     [ "int", "ref" ]
@@ -446,7 +446,7 @@ def get_spec_info():
   ),
   "sphinx3": (
     [
-      "${SPEC}/spec06_exe/sphinx_livepretend" + elf_suffix,
+      "${SPEC}/spec06_exe/sphinx3" + elf_suffix,
       "dir . /nfs/home/share/xs-workloads/spec/spec-all/cpu2006_run_dir/sphinx3"
     ],
     [ "ctlfile", ".", "args.an4" ],
