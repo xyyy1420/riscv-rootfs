@@ -618,6 +618,7 @@ def generate_build_scripts(specs, withTrap=False, spec_gen=__file__):
     extra_args = ""
     if withTrap:
       extra_args += " --checkpoints"
+    extra_args += f" --elf-suffix {elf_suffix}"
     lines.append(f"python3 {spec_gen} {spec}{extra_args}")
     lines.append(f"make -s -C {spike_dir} clean && make -s -C {spike_dir} -j100")
     bbl_elf = f"{spike_dir}/build/bbl"
