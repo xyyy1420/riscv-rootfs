@@ -1,3 +1,0 @@
-::sysinit:/bin/busybox --install -s
-/dev/console::sysinit:-/bin/sh /spec/run.sh
-
